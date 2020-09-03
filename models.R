@@ -122,7 +122,7 @@ p <- plot_model(lm_HBG, type = "pred", terms = c( "Gamma", "BCL11A"),colors = bc
    scale_x_continuous(breaks=seq(0,2,1)) +
    pretty_plot()
 
-ggsave("./HBHBG13bp_gamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
+ggsave("./HBG_gamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
 
 
 lm_HBB <- lmerTest::lmer(HBB  ~ BCL11A * (Gamma + HBB_3.5) + (1 | AAVS1_gRNA) + (1 | BCL11A_exon2_gRNA) + (1 | BCL11A_exon4_gRNA)  +
@@ -145,24 +145,9 @@ p <- plot_model(lm_HBB, type = "pred", terms = c( "Gamma", "BCL11A"),colors = bc
    scale_x_continuous(breaks=seq(0,4,1)) +
    pretty_plot()
 
-ggsave("./HBB_gRNAamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
-
-lm_HBB <- lmer(HBB ~ BCL11A * (HBB_3.5 + Gamma) + (1 | AAVS1_gRNA) + (1 | BCL11A_exon2_gRNA) + (1 | BCL11A_exon4_gRNA)  +
-                  (1 | HBB_gRNA) + (1 | `HBD-3.5kb_gRNA`) + (1 | HBG13bp_gRNA) + (1 | Batch), data = df2)
-p <- plot_model(lm_HBB, type = "pred", terms = c( "Gamma", "BCL11A"),colors = bcl11a) +
-   scale_x_continuous(breaks=seq(0,4,1)) +
-   pretty_plot()
-
-ggsave("./HBB_gRNAamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
+ggsave("./HBB_gamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
 
 
-lm_HBB_BCL11A <- lm(HBB ~BCL11A * (Gamma) , data = df2)
-p <- plot_model(lm_HBB_BCL11A, type = "pred", terms = c( "Gamma", "BCL11A"),colors = bcl11a) +
-   ylim(-0.25, 1) +
-   scale_x_continuous(breaks=seq(0,4,1)) +
-   pretty_plot()
-
-ggsave("./HBB_gRNAamma_BCl11A.pdf", p, height = 4, width = 5, units = "in")
 
 
 
